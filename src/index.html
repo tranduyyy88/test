@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image List</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="image-content">
+            <h3 class="title">Image List</h3>
+            <div id="images-container"></div>
+            <div class="input-upload">
+                <input type="file" id="file-input" multiple>
+                <div class="img-area" data-img="">
+                    <i class='bx bxs-cloud-upload icon'></i>
+                    <h3>Upload Image</h3>
+                </div>
+            </div>
+        </div>
+        <div id="lightbox" class="modal">
+            <button class="close-modal"><i class='bx bxs-x-circle'></i></button>
+            <div class="modal-content">
+
+            </div>
+            <button class="prev-button button"><i class='bx bx-chevron-left'></i></button>
+            <button class="next-button button"><i class='bx bx-chevron-right'></i></button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

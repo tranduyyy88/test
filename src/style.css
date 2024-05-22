@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --blue: #0071FF;
+    --light-blue: #B6DBF6;
+    --dark-blue: #005DD1;
+    --grey: #f2f2f2;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+#images-container .image-wrapper .progress {
+    -webkit-animation: loader 3s ease;
+    animation: loader 3s ease;
+    background: #75b800;
+    color: #fff;
+    padding: 5px;
+    width: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    max-width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+#images-container .image-wrapper.hide * {
+    opacity: 0;
+}
+
+#images-container .image-wrapper.hide .progress {
+    opacity: 1;
+}
+
+#images-container:empty {
+    margin: 0;
+}
+
+#images-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 30px;
+}
+
+#images-container .image-wrapper img {
+    max-width: 100%;
+    display: block;
+    aspect-ratio: 5/6;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+#images-container .image-wrapper {
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px 0px #555555;
+}
+
+#images-container .image-wrapper .action-button {
+    display: grid;
+    position: absolute;
+    top: 50%;
+    transform: translateY(1000px);
+    left: 0;
+    right: 0;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+#images-container .image-wrapper .action-button button {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    gap: 5px;
+    padding: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+    background: #fff;
+    width: 180px;
+    margin: 0 auto;
+}
+
+
+#images-container .image-wrapper .action-button button i {
+    font-size: 18px;
+}
+
+#images-container .image-wrapper .action-button button:hover {
+    opacity: 0.9;
+    box-shadow: #121212 0 0 0 1px, transparent 0 0 0 0;
+}
+
+#images-container .image-wrapper:before {
+    background: #00000029;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    transition: 0.3s;
+    opacity: 0;
+}
+
+#images-container .image-wrapper:hover:before {
+    opacity: 1;
+}
+
+#images-container .image-wrapper .action-button button.delete-button {
+    color: #b71010;
+}
+
+#images-container .image-wrapper:hover .action-button {
+    transform: translateY(-50%);
+}
+
+.input-upload {
+    position: relative;
+    margin-top: 30px;
+}
+
+.input-upload input#file-input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+.img-area {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background: #fff;
+    border: 2px dashed #333;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-area .icon {
+    font-size: 65px;
+}
+
+.img-area h3 {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.img-area p {
+    color: #999;
+}
+
+.img-area p span {
+    font-weight: 600;
+}
+
+.img-area img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 100;
+}
+
+.img-area::before {
+    content: attr(data-img);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: all .3s ease;
+    z-index: 200;
+}
+
+.img-area.active:hover::before {
+    opacity: 1;
+}
+
+.select-image {
+    display: block;
+    width: 100%;
+    padding: 16px 0;
+    border-radius: 15px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.select-image:hover {
+    background: var(--dark-blue);
+}
+
+div#lightbox.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+div#lightbox.modal:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #3333338a;
+}
+
+div#lightbox.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+div#lightbox.modal .modal-content img {
+    max-width: 500px;
+}
+
+div#lightbox.modal .modal-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+div#lightbox.modal button.close-modal {
+    all: unset;
+    position: absolute;
+    color: #fff;
+    font-size: 30px;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+    cursor: pointer;
+    display: flex;
+}
+
+#images-container .image-wrapper:hover {
+    cursor: zoom-in;
+}
+
+div#lightbox.modal .button {
+    all: unset;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(10px);
+    font-size: 30px;
+    display: flex;
+    background: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+div#lightbox.modal .button.prev-button {
+    left: 100px;
+}
+
+div#lightbox.modal .button.next-button {
+    right: 100px;
+}
+
+div#lightbox.modal .button:hover {
+    opacity: 0.9;
+}
+
+@keyframes loader {
+
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+
+}
