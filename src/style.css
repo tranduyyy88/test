@@ -17,6 +17,7 @@
 .container {
     max-width: 1300px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
 .title {
@@ -316,6 +317,31 @@ div#lightbox.modal .button.next-button {
 
 div#lightbox.modal .button:hover {
     opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    #images-container {
+        gap: 20px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width:480px) {
+    #images-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .img-area {
+        height: 120px;
+    }
+
+    .img-area .icon {
+        font-size: 55px;
+    }
+
+    .img-area h3 {
+        font-size: 18px;
+    }
 }
 
 @keyframes loader {
