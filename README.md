@@ -15,7 +15,7 @@ npm install
 
 ## Usage
 
-``` bash
+```bash
 # Running the HTML File
 cd src
 open index.html
@@ -24,3 +24,7 @@ open index.html
 cd test
 npm test
 ```
+
+# Add-on functionality
+
+Function lightbox ( Click on the image show lightbox )
