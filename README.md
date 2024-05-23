@@ -1,6 +1,6 @@
-## Cài đặt
+## Installation
 
-Hướng dẫn từng bước để cài đặt và thiết lập môi trường để chạy dự án này.
+Step-by-step instructions on how to install and set up the environment to run this project.
 
 ```bash
 # Clone repository
@@ -11,4 +11,16 @@ cd test
 
 # Install dependencies
 npm install
+```
+
+## Usage
+
+``` bash
+# Running the HTML File
+cd src
+open index.html
+
+# Running Unit Tests
+cd test
+npm test
 ```
